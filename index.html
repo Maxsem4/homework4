@@ -15,29 +15,59 @@
   </head>
   <header>
     <nav class="navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="/highscore.html">View Highscore</a>
+      <a class="navbar-brand" href="#">View Highscore</a>
       <div id="timer" class="bg-primary text-white">60</div>
     </nav>
   </header>
   <body>
     <div class="jumbotron text-center">
-      <div id="message">
-        <h1 class="display-3 text-center">The Quiz</h1>
-        <p class="lead text-center">
-          You will have 60 seconds to answer five multiple choice questions.
-        </p>
-        <button id="startQuiz" class="btn btn-primary text-center">
-          Start Quiz
-        </button>
+      <div id= "startSection" class='show'>
+        <div id="message">
+          <h1 class="display-3 text-center">The Quiz</h1>
+          <p class="lead text-center">
+            You will have 60 seconds to answer five multiple choice questions.
+          </p>
+          <button id="startQuiz" class="btn btn-primary text-center">
+            Start Quiz
+          </button>
+        </div>
+      </div>
+      <div class="container">
+        <div id="quizdisplay" class="hide">
+          <h2 id="questions"></h2>
+          <div id="choices" class="choices"></div>
+        </div>
       </div>
     </div>
-    <div class="container">
-      <div id="quizdisplay" class="hide">
-        <h2 id="questions"></h2>
-        <div id="choices" class="choices"></div>
-      </div>
-    </div>
+  
+    <!-- <div class="container">
+            <div id="quizdisplay">
+                <p id="question"></p>
+                <div class="buttons">
+                <button class="choice"></button>
+                <br></br>
+                <button class="choice"></button>
+                <br></br>
+                <button class="choice"></button>
+                <br></br>
+                <button class="choice"></button>
+                </div>
+            </div>
+        </div> -->
   </body>
+
+  <div class="container d-flex justify-content-between mt-3">
+      <button type="button" class="btn btn-primary">Leaderboard</button>
+    </div>
+    <div class="container quiz mt-5"></div>
+    <div class="container score_card mt-5"></div>
+    <div class="container score_table mt-5"></div>
+  </main>
+  <footer class="mt-5 text-center">
+    <p>Copyright</p>
+  </footer>
+
+  <!-- Javascript Link-->
   <script
     src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -53,6 +83,6 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"
   ></script>
-  <script src="questions.js"></script>
+  <!-- <script src="questions.js"></script>-->
   <script src="app.js"></script>
 </html>
