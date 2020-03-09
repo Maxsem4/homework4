@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quiz App</title>
-    <link rel="stylesheet" href="app.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -15,74 +14,96 @@
   </head>
   <header>
     <nav class="navbar navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">View Highscore</a>
-      <div id="timer" class="bg-primary text-white">60</div>
+      <a class="navbar-brand" id="viewHighscores">View Highscores</a>
+      <div id="counter" class="bg-primary text-white"></div>
     </nav>
   </header>
   <body>
-    <div class="jumbotron text-center">
-      <div id= "startSection" class='show'>
-        <div id="message">
-          <h1 class="display-3 text-center">The Quiz</h1>
-          <p class="lead text-center">
-            You will have 60 seconds to answer five multiple choice questions.
-          </p>
-          <button id="startQuiz" class="btn btn-primary text-center">
-            Start Quiz
-          </button>
-        </div>
+    <div class="container-fluid">
+      <div class="jumbotron text-center">
+        <div id='start'>
+        <h1>Galaxy quiz challenge!</h1>
+      
+        <h5>Get ready to answer five questions about our solar system</h5>
+        <br><br>
+        <button
+          type="button"
+          class="display-3 text-center bg-primary text-white btn-lg btn-block"
+          id="start"
+        >
+          Start Quiz!
+        </button>
       </div>
-      <div class="container">
-        <div id="quizdisplay" class="hide">
-          <h2 id="questions"></h2>
-          <div id="choices" class="choices"></div>
+        <div id="quiz" style="display: none">
+            <div class="col-sm"></div>
+            <h2 class="row" id="question"></h2>
+            <div class="col-sm"></div>
+          </br></br>
+                  <div class="row">
+          <div class="col-lg" id="choices">
+            <button
+              type="button"
+              class="choice bg-primary text-white btn-lg btn-block"
+              id="A"
+              onclick="checkAnswer('A')"
+            ></button>
+          </br></br>
+            <button
+              type="button"
+              class="choice bg-primary text-white btn-lg btn-block"
+              id="B"
+              onclick="checkAnswer('B')"
+            ></button>
+        </br></br>
+            <button
+              type="button"
+              class="choice bg-primary text-white btn-lg btn-block"
+              id="C"
+              onclick="checkAnswer('C')"
+            ></button>
+      </br></br>
+            <button
+              type="button"
+              class="choice bg-primary text-white btn-lg btn-block"
+              id="D"
+              onclick="checkAnswer('D')"
+            ></button>
+          </div>
         </div>
+        </div>
+        <form id="scoreContainer" style="display: none">
+          <br> 
+          <div class="form-group">
+              <label for="exampleInputEmail1">Enter your name to save your Highscore</label>
+              <input type="highscoreInput" class="form-control" id="highscoreInput" aria-describedby="Enter Highscore">
+              <br>
+              <button type="submitHighscores" class="btn btn-primary">Submit</button>
+           </form>
+          </br></br></br>
+        <ul class="list-group leaderboard" id="leaderboardList"></ul>
+        <div id="timer"></div>
+        <div id="progress"></div>
       </div>
+    
     </div>
-  
-    <!-- <div class="container">
-            <div id="quizdisplay">
-                <p id="question"></p>
-                <div class="buttons">
-                <button class="choice"></button>
-                <br></br>
-                <button class="choice"></button>
-                <br></br>
-                <button class="choice"></button>
-                <br></br>
-                <button class="choice"></button>
-                </div>
-            </div>
-        </div> -->
+
+    <!-- Javascript Link-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="questions.js"></script>-->
+    <script src="quiz.js"></script>
   </body>
-
-  <div class="container d-flex justify-content-between mt-3">
-      <button type="button" class="btn btn-primary">Leaderboard</button>
-    </div>
-    <div class="container quiz mt-5"></div>
-    <div class="container score_card mt-5"></div>
-    <div class="container score_table mt-5"></div>
-  </main>
-  <footer class="mt-5 text-center">
-    <p>Copyright</p>
-  </footer>
-
-  <!-- Javascript Link-->
-  <script
-    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"
-  ></script>
-  <!-- <script src="questions.js"></script>-->
-  <script src="app.js"></script>
 </html>
